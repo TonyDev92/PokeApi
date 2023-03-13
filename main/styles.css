@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Cinzel:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Cinzel:wght@600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.head {
+  background-image: url(../assets/Background.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 30vw;
+  background-size: cover;
+  background-position: center;
+}
+.head .head__tittle {
+  display: block;
+  font-family: "Bungee Shade", cursive;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 60px;
+  color: #B05C31;
+  text-shadow: 0 0 5px #8B9A37, 0 0 10px #F3C55D, 0 0 40px #F3C55D, 0 0 60px #F3C55D;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #C9434C;
+  background-image: url(../assets/pokeballs.png);
+}
+
+.nav {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.nav .search {
+  width: 25vw;
+  height: 3vw;
+  border-color: #9E2934 #99853C;
+  border-width: 5px;
+  border-radius: 7rem;
+  background-color: #D0933F;
+}
+.nav button {
+  width: 10vw;
+  text-align: center;
+  border-radius: 30%;
+  background: #9E2934;
+  border: none;
+  background-image: linear-gradient(to bottom, #9E2934, #519ccb);
+  border-radius: 28px;
+  text-shadow: 3px 2px 1px #9daef5;
+  box-shadow: 6px 5px 24px #666666;
+  font-family: Arial;
+  color: #fafafa;
+  font-size: 27px;
+  text-decoration: none;
+}
+.nav button:hover {
+  background: #2079b0;
+  background-image: linear-gradient(to bottom, #2079b0, #9E2934);
+  text-decoration: none;
+}
+
+.search::-moz-placeholder {
+  color: #C9434C;
+  font-family: "Cinzel", serif;
+  font-weight: lighter;
+  font-style: oblique;
+  text-align: center;
+}
+
+.search::placeholder {
+  color: #C9434C;
+  font-family: "Cinzel", serif;
+  font-weight: lighter;
+  font-style: oblique;
+  text-align: center;
+}
+
+.search:focus {
+  background-color: #9daef5;
+}
+
+.pokeCard {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-image: url(../assets/pokeCards.png);
+  background-size: cover;
+  background-position: center;
+  color: black;
+}
+.pokeCard img {
+  width: 11vw;
+}
+
+.Box {
+  background-color: transparent;
+  width: 300px;
+  height: 500px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+.flipBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.Box:hover .flipBox {
+  transform: rotateY(180deg);
+}
+
+.pokeCard .backCard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.pokeCard {
+  background-color: #bbb;
+  color: black;
+}
+
+.backCard {
+  background-color: #D0933F;
+  transform: rotateY(180deg);
+}/*# sourceMappingURL=styles.css.map */

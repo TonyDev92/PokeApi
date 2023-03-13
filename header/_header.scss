@@ -1,0 +1,25 @@
+
+.head{
+    background-image: url(../assets/Background.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 30vw;
+    background-size: cover;
+    background-position:center;
+    .head__tittle{
+        display: block;
+        font-family: 'Bungee Shade', cursive;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 60px;
+        color:#B05C31;
+        text-shadow:0 0 5px #8B9A37,
+                    0 0 10px #F3C55D,
+                    0 0 40px #F3C55D,
+                    0 0 60px  #F3C55D;
+    }       
+    
+}   
+
