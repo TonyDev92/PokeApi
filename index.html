@@ -6,27 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./main/styles.css">
+    <script src="./main/index.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
 </head>
 
-<header>
-    <div class="head">
-        <h1 class="head__tittle">Pokédex</h1>
-        
-    </div>
-</header>
-<main>
+<body>
+    <header>
+        <div class="head">
+            <h1 class="head__tittle">Pokédex</h1>
+
+        </div>
+    </header>
     <div class="nav">
-        <input class="search" placeholder="busca tu pokemon" type="text">
-        <button type="submit">Search</button>
+        <input id="text" class="search" type= "text" placeholder="busca tu pokemon">
+        <button id="btn" type="submit">Search</button>
     </div>
-    <body>
+
+    <main>
         <div class="container">
             <ol id="pokedex"></ol>
         </div>
-    </body>
-</main>
+
+    </main>
+</body>
 
 </html>

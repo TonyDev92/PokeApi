@@ -3,7 +3,8 @@ const button$$ = document.querySelector('button');
 const search$$ = document.querySelector('.search');
 const list$$ = document.querySelector('#Pokedex');
 const main$$ = document.querySelector('main');
-const nav$$ = document.querySelector('nav');
+const nav$$ = document.querySelector('.nav');
+
 
 
 
@@ -12,23 +13,25 @@ const nav$$ = document.querySelector('nav');
 const url = ('https://pokeapi.co/api/v2/pokemon/');
 
 const getDates = async() => {
+    const lista = [];
     for(let i = 1; i <= 151; i++){ 
         try{
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`) //Pasamos el valor de la iteración a la url como end-Point
             const responseJson = await response.json();                            
-            setPokemon(responseJson) //Al pasar la respuesta como parametro de la funcion le estamos dando los datos a la función
+            setPokemon(responseJson)//Al pasar la respuesta como parametro de la funcion le estamos dando los datos a la función)
+            lista.push(responseJson);
         } catch(error){
             console.log(error);
         }     
-    }
-        
+    }      
+    return lista;
 }
-getDates();
+// getDates();
 
 
 //Declaramos una funcion que nos muestre los pokemon por pantalla
 const setPokemon = (pokemon) => {
-        console.log(pokemon);
+        // console.log(pokemon);
         let pokemonDiv$$ = document.createElement('div') //parte delantera de las cartas
         pokemonDiv$$.className = 'pokeCard'
         main$$.appendChild(pokemonDiv$$);
@@ -55,13 +58,13 @@ const setPokemon = (pokemon) => {
         pokemonDiv$$.appendChild(pokeImage$$)
 
         let pokeId$$ = document.createElement('h3')
-        pokeId$$.textContent = pokemon.id 
+        pokeId$$.textContent = (`#${pokemon.id}`) 
         pokemonDiv$$.appendChild(pokeId$$)
 
         let baseExperience$$ = document.createElement('p')
+        baseExperience$$.className = 'p_base'
         baseExperience$$.textContent = (`Base Experience:  ${pokemon.base_experience}`)
         pokemonDiv$$.appendChild(baseExperience$$)
-        
         for(const obj of pokemon.moves){ // Con un bucle entraremos un nivel más de profundidad dentro de la info 
             let move$$ = document.createElement('p')
             move$$.textContent = (`Move: ${obj.move.name}`)
@@ -71,15 +74,36 @@ const setPokemon = (pokemon) => {
         const getLocation = async() => { //Con esta segunda llamada a la Api conseguimos acceder al area de localizacion 
             const loc = await fetch('https://pokeapi.co/api/v2/pokemon/1/encounters')
             const locJson = await loc.json()
-            console.log(locJson);
+            // console.log(locJson);
             for(const obj of locJson){
                 let locationArea$$ = document.createElement('div')
                 locationArea$$.textContent = (`Location Area : ${obj.location_area.name}`)
                 pokemonCardFlip$$.appendChild(locationArea$$)
             }
         }    
+
         getLocation();
-        list$$.appendChild(pokemonDiv$$);
+}
+
+const filter = (pokemon) => {
+    button$$.addEventListener('click', (e) => pokemonfilter(pokemon));
 }
 
 
+const pokemonfilter = (pokemon) => {
+    console.log('entro');
+    main$$.innerHTML = ' ';
+    const pokemonFilter = pokemon.filter((pokemon) => 
+    pokemon.name.toLowerCase().includes(search$$.value.toLowerCase()) ||
+    pokemon.id == search$$.value) 
+    for(const obj of pokemonFilter){
+        setPokemon(obj);
+    }
+}
+
+const play = async () => {
+    const pokemon = await getDates();
+    filter(pokemon);
+}
+
+play();

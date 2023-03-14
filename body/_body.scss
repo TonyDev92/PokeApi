@@ -6,7 +6,8 @@ main{
     justify-content: center;
     align-items: flex-start;
     background-color:#C9434C;
-    background-image: url(../assets/pokeballs.png);
+    background-image: url(../assets/mainBack.png);
+    
 }
 
 .nav{
@@ -14,8 +15,9 @@ main{
     height: 20%;
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    background-color: black;
     .search{
+        margin-top: 1rem;
         width: 25vw;
         height: 3vw;
         border-color: #9E2934 #99853C;
@@ -23,7 +25,8 @@ main{
         border-radius: 7rem;
         background-color: #D0933F;
     }
-    button{
+    #btn{
+        margin-top: 1rem;
         width: 10vw;
         text-align: center;
         border-radius: 30%;
@@ -45,8 +48,9 @@ main{
         color: #fafafa;
         font-size: 27px;
         text-decoration: none;
+        margin-left: 1rem;
     }
-    button:hover {
+    #btn:hover {
         background: #2079b0;
         background-image: -webkit-linear-gradient(top, #2079b0, #9E2934);
         background-image: -moz-linear-gradient(top, #2079b0, #9E2934);
@@ -74,22 +78,29 @@ main{
         background-image: url(../assets/pokeCards.png);
         background-size:cover;
         background-position: center;
-        // width: 25vw;
-        // height: 33vw;
-        // margin:2rem;
-        // border-radius: 25px;
+        cursor: default;
+        height: 300px;
+        transform-style: preserve-3d;
+        transition: transform 0.4s ease 0s;
+        width: 100%;
+        -webkit-animation: giro 1s 1;
+        animation: giro 1s 1;
         color: black;
         img{
-            width: 11vw;
-        
+            width: 100px;
         }
 }
 .Box{
+    display: flex;
     background-color: transparent;
     width: 300px;
-    height: 500px;
-    border: 1px solid #f1f1f1;
+    height: 400px;
     perspective: 1000px; 
+    float: left;
+    font-size: 1.2em;
+    margin: 1% 0 0 1%;
+    transition: all 0.3s ease 0s;
+    
 }
 .flipBox{
     position: relative;
@@ -102,24 +113,69 @@ main{
 
 .Box:hover .flipBox{
     transform: rotateY(180deg);
+    
 }
 
-.pokeCard .backCard{
+.pokeCard ,.backCard{
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
+    box-sizing: border-box;
+    color: white;
+    font-size: 1.2em;
+    position: absolute;
+    text-align: center;
+    border-radius: 100px;
+    h2{
+        font-family: 'Bungee Shade', cursive;
+        color:#9E2934;
+        text-shadow:0 0 5px #99853C,
+                    0 0 10px #F3C55D,
+                    0 0 40px #F3C55D,
+                    0 0 60px  #F3C55D;
+    }
+    h3{
+        font-family: 'Nabla', cursive;
+    }
+    .p_base{
+        font-family: 'Bungee Shade', cursive;
+        color: #C9434C;
+        font-size: medium;
+        text-shadow:0 0 5px #99853C,
+                    0 0 10px #F3C55D,
+                    0 0 40px #F3C55D,
+                    0 0 60px  #F3C55D;
+    }
 }
 .pokeCard{
+    justify-content: center;
+    align-items: center;
     background-color: #bbb;
     color: black;
 }
 .backCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color:#D0933F;
-    // color: white;
     transform: rotateY(180deg);
+    background-image: url(../assets/Background.png);
+    background-size: cover;
+    background-position: right;
+    text-align: center;
+    font-family: 'Nabla', cursive;
+    font-weight: lighter;
+    font-size: 20px;
+    color:#C9434C;
+    text-shadow:0 0 5px #99853C,
+                    0 0 10px #99853C,
+                    0 0 40px #99853C,
+                    0 0 60px  #99853C;
+
 }
+
 
 
 
